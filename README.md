@@ -1,6 +1,8 @@
 # Self-Aware Agent Architecture
 
-The Agent System is an adaptive AI architecture that autonomously generates evaluation criteria, produces multiple response candidates, and iteratively improves through confidence-based self-correction. The system leverages LLM-as-a-judge mechanisms combined with log probability confidence scoring to deliver high-quality outputs while continuously enhancing its own evaluation capabilities and prompt strategies.
+The agent system is an adaptive AI architecture that autonomously generates evaluation criteria, produces multiple response candidates, and iteratively improves through confidence-based self-correction. The system leverages LLM-as-a-judge mechanisms combined with long-term agent memory to deliver high-quality outputs while continuously enhancing its own evaluation capabilities and prompt strategies.
+
+A concurrent agentic evaluation process runs in the background of the chatbot and does not interfere with or degrade the user experience unless intervention is warranted. A meter is displayed to the user showing answer entropy and updates after every AI generated answer. The user can set a threshold for the level of entropy they deem acceptable for their research context.  If the entropy crosses the threshold, an intervention event occurs where the agent will autonomously take corrective action.  Corrective action could manifest as anything from retrieving additional context to asking the user for more information. Once an answer with acceptable entropy is achieved a query that required corrective action, the query/answer pair is persisted in long-term memory and will be used as a few-shot example for similar queries in the future.
 
 ## Core Architecture Components
 
